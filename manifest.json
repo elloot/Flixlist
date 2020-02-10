@@ -1,24 +1,19 @@
 {
+    "manifest_version": 2,
+    "name": "Flixlist",
+    "version": "1.0",
 
-  "manifest_version": 2,
-  "name": "Flixlist",
-  "version": "1.0",
+    "description": "Gets \"My List\" from Netflix and copies it to your clipboard, no need to go through and write down each item!",
+    "homepage_url": "https://github.com/elloot/Flixlist",
+    "icons": {
+        "48": "icons/flixlist-48.png"
+    },
 
-  "description": "Gets \"My List\" from Netflix and copies it to your clipboard, no need to go through and write down each item!",
-  "homepage_url": "https://github.com/elloot/Flixlist",
-  "icons": {
-    "48": "icons/flixlist-48.png"
-  },
+    "permissions": ["activeTab", "clipboardWrite"],
 
-  "permissions": [
-    "activeTab",
-	"clipboardWrite"
-  ],
-
-  "browser_action": {
-    "default_icon": "icons/flixlist-32.png",
-    "default_title": "Flixlist",
-    "default_popup": "popup/flix-a-list.html"
-  }
-
+    "browser_action": {
+        "default_icon": "icons/flixlist-32.png",
+        "default_title": "Flixlist",
+        "default_popup": "popup/flix-a-list.html"
+    }
 }
