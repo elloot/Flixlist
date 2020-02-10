@@ -11,7 +11,6 @@ function reportExecuteScriptError(error) {
 }
 
 browser.tabs
-    .executeScript({ file: "/content-scripts/content_scripts" })
-    .then(console.log("Shit"))
+    .executeScript({ file: "/content_scripts/content_scripts" })
     .then(listenForClicks)
     .catch(reportExecuteScriptError);
