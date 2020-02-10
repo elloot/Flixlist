@@ -12,12 +12,26 @@
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  width: 200px;
+  height: 100px;
 }
 
 .popup-content .button {
   background-color: 0;
+  border: solid 2px black;
+  border-radius: 20px;
+  padding: 6px;
+}
+
+.popup-content .button:hover {
+  cursor: pointer;
+}
+
+.error-content {
+  background-color: red;
+}
+
+.hidden {
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

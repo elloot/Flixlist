@@ -7,8 +7,23 @@
 .popup-content {
     display: flex;
     justify-content: left;
-    align-items: center;
+    width: 200px;
+    height: 100px;
     .button {
         background-color: red($color: #000000);
+        border: solid 2px black;
+        border-radius: 20px;
+        padding: 6px;
+        &:hover {
+            cursor: pointer;
+        }
     }
+}
+
+.error-content {
+    background-color: red;
+}
+
+.hidden {
+    display: none;
 }
