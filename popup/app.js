@@ -5,4 +5,4 @@ for (item of nListObject) {
     nListItems = nListItems + item.getAttribute("aria-label") + "\n\n";
 }
 
-navigator.clipboard.writeText(nListItems);
+Clipboard.write(nListItems);

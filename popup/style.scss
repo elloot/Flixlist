@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.popup-content {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    .button {
+        background-color: red($color: #000000);
+    }
+}
