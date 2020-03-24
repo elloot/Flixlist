@@ -1,16 +1,19 @@
+browser.tabs
+    .executeScript({ file: "../../content_scripts/heheitdontwork.js" })
+    .then(listenForClicks)
+    .catch(reportExecuteScriptError);
+
 function listenForClicks() {
-    document.addEventListener("click", e => {
-        console.log(e);
+    document.querySelector(".button").addEventListener("click", e => {
+        browser.tabs.sendMessage(tabs[0].id, {
+            command: "flixthislist"
+        });
     });
 }
 
 function reportExecuteScriptError(error) {
     document.querySelector(".popup-content").classList.add("hidden");
     document.querySelector(".error-content").classList.remove("hidden");
-    console.error(`Failed to execute Flixalist content script: ${error.message}`);
+    document.querySelector(".error-content").firstChild.classList;
+    document.querySelector(".error-content").innerHTML = error.message;
 }
-
-browser.tabs
-    .executeScript({ file: "/content_scripts/heheitdontwork.js" })
-    .then(listenForClicks)
-    .catch(reportExecuteScriptError);
