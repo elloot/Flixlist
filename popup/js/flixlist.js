@@ -1,15 +1,10 @@
-browser.tabs
-    .executeScript({ file: "../../content_scripts/heheitdontwork.js" })
-    .then(listenForClicks)
-    .catch(reportExecuteScriptError);
+function listenForClicks() {}
 
-function listenForClicks() {
-    document.querySelector(".button").addEventListener("click", e => {
-        browser.tabs.sendMessage(tabs[0].id, {
-            command: "flixthislist"
-        });
+document.addEventListener("click", () => {
+    browser.tabs.sendMessage(tabs[0].id, {
+        command: "flixthislist"
     });
-}
+});
 
 function reportExecuteScriptError(error) {
     document.querySelector(".popup-content").classList.add("hidden");
@@ -17,3 +12,8 @@ function reportExecuteScriptError(error) {
     document.querySelector(".error-content").firstChild.classList;
     document.querySelector(".error-content").innerHTML = error.message;
 }
+
+browser.tabs
+    .executeScript({ file: "../../content_scripts/heheitkindawork.js" })
+    .then(listenForClicks)
+    .catch(reportExecuteScriptError);
