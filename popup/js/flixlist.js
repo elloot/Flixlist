@@ -1,7 +1,8 @@
 function listenForClicks() {}
 
 document.addEventListener("click", () => {
-    browser.tabs.sendMessage(tabs[0].id, {
+    document.querySelector(".button").innerHTML = JSON.stringify(browser.tabs);
+    browser.tabs.sendMessage(browser.tabs[0].id, {
         command: "flixthislist"
     });
 });
