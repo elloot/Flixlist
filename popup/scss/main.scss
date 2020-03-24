@@ -6,15 +6,17 @@
 
 .popup-content {
     display: flex;
-    justify-content: left;
+    justify-content: center;
     width: 200px;
     height: 100px;
+    align-items: center;
     .button {
         background-color: red($color: #000000);
         border: solid 2px black;
         border-radius: 20px;
         padding: 6px;
         cursor: pointer;
+        height: 50px;
     }
 }
 
