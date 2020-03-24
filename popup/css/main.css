@@ -21,9 +21,6 @@
   border: solid 2px black;
   border-radius: 20px;
   padding: 6px;
-}
-
-.popup-content .button:hover {
   cursor: pointer;
 }
 
