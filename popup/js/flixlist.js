@@ -1,9 +1,10 @@
 function listenForClicks() {}
 
 document.addEventListener("click", () => {
-    document.querySelector(".button").innerHTML = JSON.stringify(browser.tabs);
-    browser.tabs.sendMessage(browser.tabs[0].id, {
-        command: "flixthislist"
+    browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
+        browser.tabs.sendMessage(tabs[0].id, {
+            command: "flixthislist"
+        });
     });
 });
 
