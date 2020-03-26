@@ -1,11 +1,15 @@
 (function() {
     browser.runtime.onMessage.addListener(message => {
+        console.log(message.command);
         switch (message.command) {
             case "flixThisList":
                 flixThisList();
                 break;
             case "scrollDown":
-                //run function that scrolls down
+                scrollDown(true);
+                break;
+            case "stopScroll":
+                scrollDown(false);
                 break;
         }
     });
@@ -19,5 +23,12 @@
         }
 
         navigator.clipboard.writeText(nListItems);
+    }
+
+    function scrollDown(running) {
+        console.log(running);
+        while (running) {
+            window.scrollTo(0, document.body.scrollHeight);
+        }
     }
 })();
