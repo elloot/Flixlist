@@ -1,6 +1,6 @@
 function listenForClicks() {}
 
-document.addEventListener("click", () => {
+document.querySelector(".button").addEventListener("click", () => {
     browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
         browser.tabs.sendMessage(tabs[0].id, {
             command: "flixThisList"
@@ -8,7 +8,7 @@ document.addEventListener("click", () => {
     });
 });
 
-document.querySelector(".scroll-button").addEventListener("mousedown", () => {
+document.querySelector(".scroll-button").addEventListener("mousedown", e => {
     browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
         browser.tabs.sendMessage(tabs[0].id, {
             command: "scrollDown"
