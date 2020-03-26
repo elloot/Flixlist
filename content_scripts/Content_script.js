@@ -1,11 +1,16 @@
 (function() {
     browser.runtime.onMessage.addListener(message => {
-        if (message.command === "flixthislist") {
-            flixthislist();
+        switch (message.command) {
+            case "flixThisList":
+                flixThisList();
+                break;
+            case "scrollDown":
+                //run function that scrolls down
+                break;
         }
     });
 
-    function flixthislist() {
+    function flixThisList() {
         let nListObject = document.querySelectorAll("a.slider-refocus");
         let nListItems = "";
 
