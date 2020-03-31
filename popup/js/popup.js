@@ -1,20 +1,20 @@
 function listenForClicks() {}
 
 document.querySelector(".button").addEventListener("click", () => {
-    browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
-        browser.tabs.sendMessage(tabs[0].id, {
-            command: "flixThisList"
-        });
-    });
+    sendMessage("command", "flixThisList");
 });
 
-document.querySelector(".scroll-button").addEventListener("mousedown", e => {
+document.querySelector(".scroll-button").addEventListener("click", () => {
+    sendMessage("command", "scroll");
+});
+
+function sendMessage(type, message) {
     browser.tabs.query({ active: true, currentWindow: true }).then(tabs => {
         browser.tabs.sendMessage(tabs[0].id, {
-            command: "scrollDown"
+            [type]: message
         });
     });
-});
+}
 
 function reportExecuteScriptError(error) {
     document.querySelector(".popup-content").classList.add("hidden");
