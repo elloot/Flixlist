@@ -5,11 +5,8 @@
             case "flixThisList":
                 flixThisList();
                 break;
-            case "scrollDown":
-                scrollDown(true);
-                break;
-            case "stopScroll":
-                scrollDown(false);
+            case "scroll":
+                scrollLoad();
                 break;
         }
     });
@@ -23,6 +20,17 @@
         }
 
         navigator.clipboard.writeText(nListItems);
+    }
+
+    async function scrollLoad() {
+        for (i = 0; i < 5; i++) {
+            window.scrollTo(0, document.body.scrollHeight);
+            await sleep(500);
+        }
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
     }
 
     function scrollDown(running) {
