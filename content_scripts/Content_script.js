@@ -1,17 +1,17 @@
 (function() {
     browser.runtime.onMessage.addListener(message => {
-        console.log(message.command);
+        //console.log(message.command);
         switch (message.command) {
-            case "flixThisList":
-                flixThisList();
+            case "getList":
+                getList();
                 break;
-            case "scroll":
-                scrollLoad();
+            case "scrollDown":
+                scrollDown();
                 break;
         }
     });
 
-    function flixThisList() {
+    function getList() {
         let nListObject = document.querySelectorAll("a.slider-refocus");
         let nListItems = "";
 
@@ -22,7 +22,7 @@
         navigator.clipboard.writeText(nListItems);
     }
 
-    async function scrollLoad() {
+    async function scrollDown() {
         for (i = 0; i < 5; i++) {
             window.scrollTo(0, document.body.scrollHeight);
             await sleep(500);
@@ -31,12 +31,5 @@
 
     function sleep(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-    }
-
-    function scrollDown(running) {
-        console.log(running);
-        while (running) {
-            window.scrollTo(0, document.body.scrollHeight);
-        }
     }
 })();

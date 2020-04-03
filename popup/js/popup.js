@@ -1,11 +1,7 @@
-function listenForClicks() {}
-
-document.querySelector(".button").addEventListener("click", () => {
-    sendMessage("command", "flixThisList");
-});
-
-document.querySelector(".scroll-button").addEventListener("click", () => {
-    sendMessage("command", "scroll");
+document.querySelectorAll(".button").forEach(element => {
+    element.addEventListener("click", e => {
+        sendMessage("command", e.target.dataset.buttonType);
+    });
 });
 
 function sendMessage(type, message) {
@@ -23,7 +19,4 @@ function reportExecuteScriptError(error) {
     document.querySelector(".error-content").innerHTML = error.message;
 }
 
-browser.tabs
-    .executeScript({ file: "../../content_scripts/Content_script.js" })
-    .then(listenForClicks)
-    .catch(reportExecuteScriptError);
+browser.tabs.executeScript({ file: "../../content_scripts/Content_script.js" }).catch(reportExecuteScriptError);
