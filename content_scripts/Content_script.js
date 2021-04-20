@@ -4,9 +4,6 @@
       case 'getList':
         getList();
         break;
-      case 'scrollDown':
-        scrollDown();
-        break;
     }
   });
 
@@ -24,15 +21,25 @@
   }
 
   async function scrollDown() {
-    console.log(document.querySelector('.gallerySpinLoader'));
+    const footer = document.querySelector('.member-footer');
     do {
-      window.scrollTo(0, document.body.scrollHeight);
+      footer.scrollIntoView();
       await sleep(1000);
-    } while (document.querySelector('.gallerySpinLoader') != null);
-    return true;
+    } while (!isInViewport(footer));
   }
 
   function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
+  function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
   }
 })();
